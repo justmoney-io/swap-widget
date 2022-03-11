@@ -1,12 +1,14 @@
-#Justmoney Swap widget 
+# Justmoney Swap widget 
 
 A widget that can be placed on any website. It gives a functionality 
 to swap tokens and add/remove liquidity to/from liquidity pairs that are in Justmoney.exchange.
 
 
+![Widget sample](widget-sample.png)
+
 ## USAGE:
 
-###Bittorrent Chain
+### Bittorrent Chain
 
 ```
 <iframe id="jmSwapFrame" src="https://bttc.justmoney.exchange/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
