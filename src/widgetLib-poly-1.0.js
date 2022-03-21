@@ -1,4 +1,4 @@
-var widgetLib10_bttc = widgetLib10_bttc || {
+var widgetLib10_poly = widgetLib10_poly || {
     connected: false,
     name: null,
     address: null,
@@ -1758,7 +1758,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                 }
             }
 
-            if (e.data && e.data.name == 'JMSwapFunctionBTTC') {
+            if (e.data && e.data.name == 'JMSwapFunctionPOLY') {
                 this[e.data.functionName].apply(this, e.data.functionParams);
             }
         });
@@ -1771,7 +1771,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
     post: function (name, data) {
         let finalData = {
-            name: 'JMSwapResponseBTTC',
+            name: 'JMSwapResponsePOLY',
             functionName: name,
             data: data,
         };
@@ -1791,7 +1791,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
         async function addNetwork() {
             try {
-                await changeChain(199);
+                await changeChain(137);
             } catch (error) {
                 if (error.code === 4902) {
                     try {
@@ -1799,18 +1799,18 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                             method: 'wallet_addEthereumChain',
                             params: [
                                 {
-                                    chainId: `0x${parseInt(199, 10).toString(
+                                    chainId: `0x${parseInt(137, 10).toString(
                                         16
                                     )}`, // Hexadecimal version of 137, prefixed with 0x
-                                    chainName: 'BitTorrent Chain Mainnet',
+                                    chainName: 'Polygon Mainnet',
                                     nativeCurrency: {
-                                        name: 'BTT',
-                                        symbol: 'BTT',
+                                        name: 'MATIC',
+                                        symbol: 'MATIC',
                                         decimals: 18,
                                     },
-                                    rpcUrls: ['https://rpc.bt.io'],
+                                    rpcUrls: ['https://polygon-rpc.com'],
                                     blockExplorerUrls: [
-                                        'https://scan.bt.io/',
+                                        'https://polygonscan.com/',
                                     ],
                                     iconUrls: [''],
                                 },
@@ -1989,4 +1989,4 @@ var widgetLib10_bttc = widgetLib10_bttc || {
         return amount / Math.pow(10, decimals);
     },
 };
-widgetLib10_bttc.init();
+widgetLib10_poly.init();

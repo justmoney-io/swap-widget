@@ -1,4 +1,4 @@
-var widgetLib10_bttc = widgetLib10_bttc || {
+var widgetLib10_bsc = widgetLib10_bsc || {
     connected: false,
     name: null,
     address: null,
@@ -1758,7 +1758,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                 }
             }
 
-            if (e.data && e.data.name == 'JMSwapFunctionBTTC') {
+            if (e.data && e.data.name == 'JMSwapFunctionBSC') {
                 this[e.data.functionName].apply(this, e.data.functionParams);
             }
         });
@@ -1771,7 +1771,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
     post: function (name, data) {
         let finalData = {
-            name: 'JMSwapResponseBTTC',
+            name: 'JMSwapResponseBSC',
             functionName: name,
             data: data,
         };
@@ -1791,7 +1791,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
         async function addNetwork() {
             try {
-                await changeChain(199);
+                await changeChain(56);
             } catch (error) {
                 if (error.code === 4902) {
                     try {
@@ -1799,19 +1799,19 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                             method: 'wallet_addEthereumChain',
                             params: [
                                 {
-                                    chainId: `0x${parseInt(199, 10).toString(
+                                    chainId: `0x${parseInt(56, 10).toString(
                                         16
-                                    )}`, // Hexadecimal version of 137, prefixed with 0x
-                                    chainName: 'BitTorrent Chain Mainnet',
+                                    )}`, // Hexadecimal version of 56, prefixed with 0x
+                                    chainName: 'Binance Smart Chain',
                                     nativeCurrency: {
-                                        name: 'BTT',
-                                        symbol: 'BTT',
+                                        name: 'BNB',
+                                        symbol: 'BNB',
                                         decimals: 18,
                                     },
-                                    rpcUrls: ['https://rpc.bt.io'],
-                                    blockExplorerUrls: [
-                                        'https://scan.bt.io/',
+                                    rpcUrls: [
+                                        'https://bsc-dataseed.binance.org',
                                     ],
+                                    blockExplorerUrls: ['https://bscscan.com/'],
                                     iconUrls: [''],
                                 },
                             ],
@@ -1847,9 +1847,28 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                 setTimeout(connectMetamask, this.POLLING_INTERVAL);
             }
         }
+        async function connectBinanceWallet() {
+            let eth = window.BinanceChain || window.top.BinanceChain;
+            if (eth) {
+                this.accounts = await window.BinanceChain.request({ method: 'eth_requestAccounts' });
+                this.web3 = new Web3(window.BinanceChain);
+                this.update();
+                this.connected = true;
+                this.post('connected');
+
+                eth.on('chainChanged', (chainId) => {
+                    window.location.reload();
+                });
+            } else {
+                setTimeout(connectBinanceWallet, this.POLLING_INTERVAL);
+            }
+        }
 
         if (wallet == 'MetaMask' || wallet == 'TrustWallet') {
             connectMetamask.call(this);
+        }
+        if (wallet == 'BinanceWallet') {
+            connectBinanceWallet.call(this);
         }
     },
 
@@ -1989,4 +2008,4 @@ var widgetLib10_bttc = widgetLib10_bttc || {
         return amount / Math.pow(10, decimals);
     },
 };
-widgetLib10_bttc.init();
+widgetLib10_bsc.init();

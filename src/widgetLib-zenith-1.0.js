@@ -1,4 +1,4 @@
-var widgetLib10_bttc = widgetLib10_bttc || {
+var widgetLib10_zenith = widgetLib10_zenith || {
     connected: false,
     name: null,
     address: null,
@@ -1758,7 +1758,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                 }
             }
 
-            if (e.data && e.data.name == 'JMSwapFunctionBTTC') {
+            if (e.data && e.data.name == 'JMSwapFunctionZENITH') {
                 this[e.data.functionName].apply(this, e.data.functionParams);
             }
         });
@@ -1771,7 +1771,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
     post: function (name, data) {
         let finalData = {
-            name: 'JMSwapResponseBTTC',
+            name: 'JMSwapResponseZENITH',
             functionName: name,
             data: data,
         };
@@ -1791,7 +1791,7 @@ var widgetLib10_bttc = widgetLib10_bttc || {
 
         async function addNetwork() {
             try {
-                await changeChain(199);
+                await changeChain(79);
             } catch (error) {
                 if (error.code === 4902) {
                     try {
@@ -1799,18 +1799,20 @@ var widgetLib10_bttc = widgetLib10_bttc || {
                             method: 'wallet_addEthereumChain',
                             params: [
                                 {
-                                    chainId: `0x${parseInt(199, 10).toString(
+                                    chainId: `0x${parseInt(79, 10).toString(
                                         16
-                                    )}`, // Hexadecimal version of 137, prefixed with 0x
-                                    chainName: 'BitTorrent Chain Mainnet',
+                                    )}`, // Hexadecimal version of 79, prefixed with 0x
+                                    chainName: 'Zenith Mainnet',
                                     nativeCurrency: {
-                                        name: 'BTT',
-                                        symbol: 'BTT',
+                                        name: 'ZENITH',
+                                        symbol: 'ZENITH',
                                         decimals: 18,
                                     },
-                                    rpcUrls: ['https://rpc.bt.io'],
+                                    rpcUrls: [
+                                        'https://dataserver-1.zenithchain.co',
+                                    ],
                                     blockExplorerUrls: [
-                                        'https://scan.bt.io/',
+                                        'https://explorer.zenithchain.co/',
                                     ],
                                     iconUrls: [''],
                                 },
@@ -1989,4 +1991,4 @@ var widgetLib10_bttc = widgetLib10_bttc || {
         return amount / Math.pow(10, decimals);
     },
 };
-widgetLib10_bttc.init();
+widgetLib10_zenith.init();
