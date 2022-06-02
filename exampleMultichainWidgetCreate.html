@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Justmoney Widget Example</title>
+</head>
+<body>
+
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
+<script type="application/javascript">
+    JmApi.createSwapWidget('jmSwapFrame', {
+        type: 'MULTICHAIN',
+        network: ['TRON','BSC','POLY','BTTC','ZENITH'],
+        slippage: 0.05,
+        liquidityTab: true,
+        shadow: false,
+        backgroundColor: '#7f8588',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#0057f6;color:#FFF;',
+        maxButtonStyle: 'background:#0057f6;color:#FFF;',
+        chartBackgroundColor: '#0057f6',
+        headingStyle: 'color:#0057f6;text-shadow:none',
+        lightBranding: false,
+        tokens: {
+            TRON:[],
+            BSC:[],
+            POLY:[],
+            BTTC:[],
+            ZENITH:[],
+        },
+        fromToken: {
+            TRON: "TRX",
+            BSC:"USDT",
+            POLY:"MATIC",
+            BTTC:"TRX",
+            ZENITH: "BUSD"
+        },
+        toToken: {
+            TRON:"JM",
+            BSC:"BNB",
+            POLY:"USDT",
+            BTTC:"BTT",
+            ZENITH: "ZENITH"
+        },
+    });
+</script>
+</body>
+</html>

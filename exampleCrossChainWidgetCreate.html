@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Justmoney Cross-Chain Widget Example</title>
+</head>
+<body>
+
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
+<script type="application/javascript">
+    JmApi.createSwapWidget('jmCCSwapFrame', {
+        type: 'CROSSCHAIN',
+        shadow: false,
+        backgroundColor: '#00ebff',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#FFF;color:#2E3344;',
+        maxButtonStyle: 'background:#FFF;color:#2E3344;',
+        headingStyle: 'color:#FFF;',
+        lightBranding: true,
+        tokens: {TRON:[], BSC:[], POLY:[], BTTC:[]},
+        fromNetwork: "BSC",
+        toNetwork: "TRON",
+        fromToken: "BNB",
+        toToken: "JM",
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Justmoney Widget Example</title>
+</head>
+<body>
+
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
+<script type="application/javascript">
+    JmApi.createSwapWidget('jmSwapFrame', {
+        type: 'SINGLECHAIN',
+        network: 'TRON',
+        slippage: 0.05,
+        liquidityTab: true,
+        shadow: false,
+        backgroundColor: '#F3F3F3',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#000;color:#FFF;',
+        maxButtonStyle: 'background:#FFF;color:#000;',
+        headingStyle: 'color:#353840;text-shadow:none',
+        lightBranding: false,
+        tokens: [],
+        fromToken: "TRX",
+        toToken: "JM",
+    });
+</script>
+
+</body>
+</html>
