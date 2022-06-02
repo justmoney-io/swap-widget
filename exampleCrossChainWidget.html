@@ -6,11 +6,9 @@
 </head>
 <body>
 
-<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
-<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmCCSwapFrame',
+    JmApi.swapWidget('jmCCSwapFrame', {
         shadow: false,
         backgroundColor: '#00ebff',
         backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
@@ -24,9 +22,7 @@
         toNetwork: "TRON",
         fromToken: "BNB",
         toToken: "JM",
-    }
-    new Widget11_tron(swapOptions);
-    new Widget11_web3(swapOptions);
+    });
 </script>
 
 <iframe id="jmCCSwapFrame" src="https://just.money/ccwidget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>

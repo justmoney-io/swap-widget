@@ -11,10 +11,9 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
 ### Single chain EVM (POLY,BSC,BTTC,ZENITH)
 
 ```
-<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmSwapFrame',
+    JmApi.swapWidget('jmSwapFrame', {
         network: 'BTTC',
         slippage: 0.05,
         liquidityTab: true,
@@ -29,8 +28,7 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
         tokens: ['TRX', 'BTT'],
         fromToken: "TRX",
         toToken: "BTT",
-    }
-    new Widget11_web3(swapOptions);
+    });
 </script>
 
 <iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
@@ -39,10 +37,9 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
 ### Single chain (TRON)
 
 ```
-<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmSwapFrame',
+    JmApi.swapWidget('jmSwapFrame', {
         network: 'TRON',
         slippage: 0.05,
         liquidityTab: true,
@@ -57,8 +54,7 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
         tokens: ['TRX', 'JM'],
         fromToken: "TRX",
         toToken: "JM",
-    }
-    new Widget11_tron(swapOptions);
+    });
 </script>
 
 <iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
@@ -77,11 +73,9 @@ If you do not wish to show liquidity tab and allow liquidity operations for user
 ![Widget sample](widget-sample-multi.png)
 
 ```
-<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
-<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmSwapFrame',
+    JmApi.swapWidget('jmSwapFrame', {
         network: ['TRON','BSC','POLY','BTTC','ZENITH'],
         slippage: 0.05,
         liquidityTab: true,
@@ -115,11 +109,8 @@ If you do not wish to show liquidity tab and allow liquidity operations for user
             BTTC:"BTT",
             ZENITH: "ZENITH"
         },
-    }
-    new Widget11_tron(swapOptions);
-    new Widget11_web3(swapOptions);
+    });
 </script>
-
 <iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 ```
 
@@ -135,11 +126,9 @@ case specify tokens, fromToken and toToken parameters for each network like show
 
 
 ```
-<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
-<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmCCSwapFrame',
+    JmApi.swapWidget('jmCCSwapFrame', {
         shadow: false,
         backgroundColor: '#00ebff',
         backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
@@ -153,9 +142,7 @@ case specify tokens, fromToken and toToken parameters for each network like show
         toNetwork: "TRON",
         fromToken: "BNB",
         toToken: "JM",
-    }
-    new Widget11_tron(swapOptions);
-    new Widget11_web3(swapOptions);
+    });
 </script>
 
 <iframe id="jmCCSwapFrame" src="https://just.money/ccwidget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>

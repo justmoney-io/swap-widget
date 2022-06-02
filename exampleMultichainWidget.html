@@ -6,11 +6,9 @@
 </head>
 <body>
 
-<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
-<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-1.1.js"></script>
 <script type="application/javascript">
-    var swapOptions = {
-        iframeID: 'jmSwapFrame',
+    JmApi.swapWidget('jmSwapFrame', {
         network: ['TRON','BSC','POLY','BTTC','ZENITH'],
         slippage: 0.05,
         liquidityTab: true,
@@ -44,11 +42,8 @@
             BTTC:"BTT",
             ZENITH: "ZENITH"
         },
-    }
-    new Widget11_tron(swapOptions);
-    new Widget11_web3(swapOptions);
+    });
 </script>
-
 <iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>
