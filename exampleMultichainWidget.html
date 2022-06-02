@@ -6,14 +6,16 @@
 </head>
 <body>
 
-<iframe id="jmSwapFrame" src="https://bsc.justmoney.exchange/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
 <script type="application/javascript">
-    var JMSwapOptions = {
+    var swapOptions = {
+        iframeID: 'jmSwapFrame',
         network: ['TRON','BSC','POLY','BTTC','ZENITH'],
         slippage: 0.05,
         liquidityTab: true,
         shadow: false,
-        backgroundColor: '#FFF',
+        backgroundColor: '#7f8588',
         backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
         textColor: '#000',
         buttonStyle: 'background:#0057f6;color:#FFF;',
@@ -36,19 +38,17 @@
             ZENITH: "BUSD"
         },
         toToken: {
-            TRON:"WOX",
+            TRON:"JM",
             BSC:"BNB",
             POLY:"USDT",
             BTTC:"BTT",
             ZENITH: "ZENITH"
         },
     }
+    new Widget11_tron(swapOptions);
+    new Widget11_web3(swapOptions);
 </script>
-<script src="https://tron.justmoney.exchange/assets/js/widgetLib-1.0.js"></script>
-<script src="https://bsc.justmoney.exchange/assets/js/widgetLib-bsc-1.0.js"></script>
-<script src="https://poly.justmoney.exchange/assets/js/widgetLib-poly-1.0.js"></script>
-<script src="https://bttc.justmoney.exchange/assets/js/widgetLib-bttc-1.0.js"></script>
-<script src="https://zenith.justmoney.exchange/assets/js/widgetLib-zenith-1.0.js"></script>
 
+<iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>

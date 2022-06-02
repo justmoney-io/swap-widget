@@ -8,12 +8,13 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
 
 ## USAGE:
 
-### Bittorrent Chain
+### Single chain EVM (POLY,BSC,BTTC,ZENITH)
 
 ```
-<iframe id="jmSwapFrame" src="https://bttc.justmoney.exchange/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
 <script type="application/javascript">
-    var JMSwapOptions = {
+    var swapOptions = {
+        iframeID: 'jmSwapFrame',
         network: 'BTTC',
         slippage: 0.05,
         liquidityTab: true,
@@ -29,8 +30,38 @@ to swap tokens and add/remove liquidity to/from liquidity pairs that are in Just
         fromToken: "TRX",
         toToken: "BTT",
     }
+    new Widget11_web3(swapOptions);
 </script>
-<script src="https://bttc.justmoney.exchange/assets/js/widgetLib-bttc-1.0.js"></script>
+
+<iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+```
+
+### Single chain (TRON)
+
+```
+<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script type="application/javascript">
+    var swapOptions = {
+        iframeID: 'jmSwapFrame',
+        network: 'TRON',
+        slippage: 0.05,
+        liquidityTab: true,
+        shadow: false,
+        backgroundColor: '#F3F3F3',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#000;color:#FFF;',
+        maxButtonStyle: 'background:#FFF;color:#000;',
+        headingStyle: 'color:#353840;text-shadow:none',
+        lightBranding: false,
+        tokens: ['TRX', 'JM'],
+        fromToken: "TRX",
+        toToken: "JM",
+    }
+    new Widget11_tron(swapOptions);
+</script>
+
+<iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 ```
 
 You can customize the options inside JMSwapOptions object e.g. change the background color, button colors or
@@ -46,14 +77,16 @@ If you do not wish to show liquidity tab and allow liquidity operations for user
 ![Widget sample](widget-sample-multi.png)
 
 ```
-<iframe id="jmSwapFrame" class="jmSwapFrame" src="https://justmoney.exchange/widget"  style="width: 500px; margin:auto" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
 <script type="application/javascript">
-    var JMSwapOptions = {
+    var swapOptions = {
+        iframeID: 'jmSwapFrame',
         network: ['TRON','BSC','POLY','BTTC','ZENITH'],
         slippage: 0.05,
         liquidityTab: true,
         shadow: false,
-        backgroundColor: '#FFF',
+        backgroundColor: '#7f8588',
         backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
         textColor: '#000',
         buttonStyle: 'background:#0057f6;color:#FFF;',
@@ -76,22 +109,55 @@ If you do not wish to show liquidity tab and allow liquidity operations for user
             ZENITH: "BUSD"
         },
         toToken: {
-            TRON:"WOX",
+            TRON:"JM",
             BSC:"BNB",
             POLY:"USDT",
             BTTC:"BTT",
             ZENITH: "ZENITH"
         },
     }
-
+    new Widget11_tron(swapOptions);
+    new Widget11_web3(swapOptions);
 </script>
-<script src="https://tron.justmoney.exchange/assets/js/widgetLib-1.0.js"></script>
-<script src="https://bsc.justmoney.exchange/assets/js/widgetLib-bsc-1.0.js"></script>
-<script src="https://poly.justmoney.exchange/assets/js/widgetLib-poly-1.0.js"></script>
-<script src="https://bttc.justmoney.exchange/assets/js/widgetLib-bttc-1.0.js"></script>
-<script src="https://zenith.justmoney.exchange/assets/js/widgetLib-zenith-1.0.js"></script>
+
+<iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 ```
 
 
 Instead of having single network in "network" parameter you can use an array of networks. You need to also in this
 case specify tokens, fromToken and toToken parameters for each network like shown in the example above.
+
+
+
+### Cross-Chain
+
+![Widget sample](widget-cc-sample.png)
+
+
+```
+<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script type="application/javascript">
+    var swapOptions = {
+        iframeID: 'jmCCSwapFrame',
+        shadow: false,
+        backgroundColor: '#00ebff',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#FFF;color:#2E3344;',
+        maxButtonStyle: 'background:#FFF;color:#2E3344;',
+        headingStyle: 'color:#FFF;',
+        lightBranding: true,
+        tokens: {TRON:[], BSC:[], POLY:[], BTTC:[]},
+        fromNetwork: "BSC",
+        toNetwork: "TRON",
+        fromToken: "BNB",
+        toToken: "JM",
+    }
+    new Widget11_tron(swapOptions);
+    new Widget11_web3(swapOptions);
+</script>
+
+<iframe id="jmCCSwapFrame" src="https://just.money/ccwidget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+```
+

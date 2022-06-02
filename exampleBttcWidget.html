@@ -6,9 +6,10 @@
 </head>
 <body>
 
-<iframe id="jmSwapFrame" src="https://bttc.justmoney.exchange/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
 <script type="application/javascript">
-    var JMSwapOptions = {
+    var swapOptions = {
+        iframeID: 'jmSwapFrame',
         network: 'BTTC',
         slippage: 0.05,
         liquidityTab: true,
@@ -24,8 +25,10 @@
         fromToken: "TRX",
         toToken: "BTT",
     }
+    new Widget11_web3(swapOptions);
 </script>
-<script src="https://bttc.justmoney.exchange/assets/js/widgetLib-bttc-1.0.js"></script>
+
+<iframe id="jmSwapFrame" src="https://just.money/widget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
 
 </body>
 </html>

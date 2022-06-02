@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Justmoney Cross-Chain Widget Example</title>
+</head>
+<body>
+
+<script src="https://just.money/assets/js/widgetLib-tron-1.1.js"></script>
+<script src="https://just.money/assets/js/widgetLib-web3-1.1.js"></script>
+<script type="application/javascript">
+    var swapOptions = {
+        iframeID: 'jmCCSwapFrame',
+        shadow: false,
+        backgroundColor: '#00ebff',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#000',
+        buttonStyle: 'background:#FFF;color:#2E3344;',
+        maxButtonStyle: 'background:#FFF;color:#2E3344;',
+        headingStyle: 'color:#FFF;',
+        lightBranding: true,
+        tokens: {TRON:[], BSC:[], POLY:[], BTTC:[]},
+        fromNetwork: "BSC",
+        toNetwork: "TRON",
+        fromToken: "BNB",
+        toToken: "JM",
+    }
+    new Widget11_tron(swapOptions);
+    new Widget11_web3(swapOptions);
+</script>
+
+<iframe id="jmCCSwapFrame" src="https://just.money/ccwidget" style="width:500px;height:500px;margin:auto;display:block;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+</body>
+</html>
