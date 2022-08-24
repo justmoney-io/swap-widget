@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bridge Widget Test</title>
+    <style>
+        body {
+            background: #dedede;
+        }
+
+    </style>
+</head>
+<body>
+
+<script src="https://just.money/assets/js/widgetLibBridge-1.0.js"></script>
+<script type="application/javascript">
+    JmApi.createBridgeWidget('jmBridgeFrame1', {
+        network: 'BSC',
+        backgroundColor: 'transparent',
+        backgroundImage: 'url(/assets/img/swap-form-bg-lighter.svg);',
+        textColor: '#FFF',
+        buttonStyle: 'background:#cc3399;color:#FFF;',
+        maxButtonStyle: 'background:#cc3399;color:#FFF;',
+        inputContainerStyle: 'background: white;color: #000',
+        googleFontFamily: 'Poppins',
+        headingStyle: 'color:#FFF;',
+        lightBranding: true,
+        tokens: ['GOLC'],
+        defaultToken: "GOLC"
+    });
+</script>
+
+</body>
+</html>
