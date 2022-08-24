@@ -312,7 +312,7 @@ Or create automatically by
 The bridge widget works similar way as the swap widget but with small differences in the parameters and function to call.
 
 A widget that can be placed on any website. It gives a functionality
-to swap tokens and add/remove liquidity to/from liquidity pairs that are in Justmoney.exchange.
+to bridge tokens (listed in JustMoney Bridge) between the chain.
 
 
 ![Widget sample](bridge-widget-sample.png)
